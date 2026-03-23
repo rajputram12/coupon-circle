@@ -2,6 +2,11 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, BadgeCheck, Clock, ThumbsUp, ThumbsDown, Lock, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import brandAmazon from "@/assets/brand-amazon.png";
+
+const brandLogos: Record<string, string> = {
+  Amazon: brandAmazon,
+};
 
 const CouponDetailPage = () => {
   const { id } = useParams();
