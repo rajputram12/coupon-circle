@@ -5,6 +5,23 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import BottomNav from "@/components/BottomNav";
+import heroBanner from "@/assets/hero-banner.png";
+import logoCB from "@/assets/logo-couponbecho.png";
+import brandAmazon from "@/assets/brand-amazon.png";
+import brandSwiggy from "@/assets/brand-swiggy.png";
+import brandFlipkart from "@/assets/brand-flipkart.png";
+import brandMakeMyTrip from "@/assets/brand-makemytrip.png";
+import brandMyntra from "@/assets/brand-myntra.png";
+import brandZomato from "@/assets/brand-zomato.png";
+
+const brandLogos: Record<string, string> = {
+  Amazon: brandAmazon,
+  Swiggy: brandSwiggy,
+  Flipkart: brandFlipkart,
+  MakeMyTrip: brandMakeMyTrip,
+  Myntra: brandMyntra,
+  Zomato: brandZomato,
+};
 
 const categories = [
   { name: "Amazon", icon: ShoppingBag, color: "bg-warning/10 text-warning" },
@@ -30,8 +47,12 @@ const CouponCard = ({ coupon, featured = false }: { coupon: typeof coupons[0]; f
     className={`bg-card rounded-2xl p-4 card-shadow hover:elevated-shadow transition-all duration-200 block ${featured ? "min-w-[260px] snap-start" : ""}`}
   >
     <div className="flex items-start justify-between mb-3">
-      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-        <span className="text-primary font-bold text-sm">{coupon.brand[0]}</span>
+      <div className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center overflow-hidden">
+        {brandLogos[coupon.brand] ? (
+          <img src={brandLogos[coupon.brand]} alt={coupon.brand} className="w-8 h-8 object-contain" />
+        ) : (
+          <span className="text-primary font-bold text-sm">{coupon.brand[0]}</span>
+        )}
       </div>
       <div className="flex gap-1.5">
         {coupon.verified && (
@@ -62,12 +83,16 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-background pb-20">
       {/* Header */}
-      <div className="bg-primary px-4 pt-12 pb-8 rounded-b-3xl">
-        <div className="max-w-lg mx-auto">
+      <div className="relative bg-primary px-4 pt-12 pb-8 rounded-b-3xl overflow-hidden">
+        <img src={heroBanner} alt="" className="absolute inset-0 w-full h-full object-cover opacity-30" />
+        <div className="relative max-w-lg mx-auto">
           <div className="flex items-center justify-between mb-5">
-            <div>
-              <p className="text-primary-foreground/70 text-sm">Good morning 👋</p>
-              <h1 className="text-primary-foreground text-xl font-bold">Find Best Deals</h1>
+            <div className="flex items-center gap-3">
+              <img src={logoCB} alt="Coupon Becho" className="w-10 h-10 rounded-xl" />
+              <div>
+                <p className="text-primary-foreground/70 text-sm">Good morning 👋</p>
+                <h1 className="text-primary-foreground text-xl font-bold">Coupon Becho</h1>
+              </div>
             </div>
             <Link to="/profile" className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
               <span className="text-primary-foreground font-semibold text-sm">JD</span>

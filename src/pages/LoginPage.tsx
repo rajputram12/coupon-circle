@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Mail, Lock, Eye, EyeOff, User, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import logoCB from "@/assets/logo-couponbecho.png";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,10 +14,8 @@ const LoginPage = () => {
       <div className="w-full max-w-md animate-fade-in">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary mb-4">
-            <span className="text-primary-foreground font-bold text-xl">C</span>
-          </div>
-          <h1 className="text-2xl font-bold text-foreground">CouponVault</h1>
+          <img src={logoCB} alt="Coupon Becho" className="w-14 h-14 rounded-2xl mx-auto mb-4" />
+          <h1 className="text-2xl font-bold text-foreground">Coupon Becho</h1>
           <p className="text-muted-foreground mt-1 text-sm">
             {isLogin ? "Welcome back! Sign in to continue" : "Create your account to get started"}
           </p>

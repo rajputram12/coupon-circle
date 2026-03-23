@@ -2,6 +2,11 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, BadgeCheck, Clock, ThumbsUp, ThumbsDown, Lock, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import brandAmazon from "@/assets/brand-amazon.png";
+
+const brandLogos: Record<string, string> = {
+  Amazon: brandAmazon,
+};
 
 const CouponDetailPage = () => {
   const { id } = useParams();
@@ -35,8 +40,12 @@ const CouponDetailPage = () => {
             <ArrowLeft size={18} /> Back
           </Link>
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-primary-foreground/20 flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-2xl">{coupon.brand[0]}</span>
+            <div className="w-16 h-16 rounded-2xl bg-primary-foreground/20 flex items-center justify-center overflow-hidden">
+              {brandLogos[coupon.brand] ? (
+                <img src={brandLogos[coupon.brand]} alt={coupon.brand} className="w-12 h-12 object-contain" />
+              ) : (
+                <span className="text-primary-foreground font-bold text-2xl">{coupon.brand[0]}</span>
+              )}
             </div>
             <div>
               <p className="text-primary-foreground/70 text-sm">{coupon.brand}</p>
