@@ -5,6 +5,23 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import BottomNav from "@/components/BottomNav";
+import heroBanner from "@/assets/hero-banner.png";
+import logoCB from "@/assets/logo-couponbecho.png";
+import brandAmazon from "@/assets/brand-amazon.png";
+import brandSwiggy from "@/assets/brand-swiggy.png";
+import brandFlipkart from "@/assets/brand-flipkart.png";
+import brandMakeMyTrip from "@/assets/brand-makemytrip.png";
+import brandMyntra from "@/assets/brand-myntra.png";
+import brandZomato from "@/assets/brand-zomato.png";
+
+const brandLogos: Record<string, string> = {
+  Amazon: brandAmazon,
+  Swiggy: brandSwiggy,
+  Flipkart: brandFlipkart,
+  MakeMyTrip: brandMakeMyTrip,
+  Myntra: brandMyntra,
+  Zomato: brandZomato,
+};
 
 const categories = [
   { name: "Amazon", icon: ShoppingBag, color: "bg-warning/10 text-warning" },
