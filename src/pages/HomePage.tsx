@@ -47,8 +47,12 @@ const CouponCard = ({ coupon, featured = false }: { coupon: typeof coupons[0]; f
     className={`bg-card rounded-2xl p-4 card-shadow hover:elevated-shadow transition-all duration-200 block ${featured ? "min-w-[260px] snap-start" : ""}`}
   >
     <div className="flex items-start justify-between mb-3">
-      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-        <span className="text-primary font-bold text-sm">{coupon.brand[0]}</span>
+      <div className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center overflow-hidden">
+        {brandLogos[coupon.brand] ? (
+          <img src={brandLogos[coupon.brand]} alt={coupon.brand} className="w-8 h-8 object-contain" />
+        ) : (
+          <span className="text-primary font-bold text-sm">{coupon.brand[0]}</span>
+        )}
       </div>
       <div className="flex gap-1.5">
         {coupon.verified && (
