@@ -79,12 +79,16 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-background pb-20">
       {/* Header */}
-      <div className="bg-primary px-4 pt-12 pb-8 rounded-b-3xl">
-        <div className="max-w-lg mx-auto">
+      <div className="relative bg-primary px-4 pt-12 pb-8 rounded-b-3xl overflow-hidden">
+        <img src={heroBanner} alt="" className="absolute inset-0 w-full h-full object-cover opacity-30" />
+        <div className="relative max-w-lg mx-auto">
           <div className="flex items-center justify-between mb-5">
-            <div>
-              <p className="text-primary-foreground/70 text-sm">Good morning 👋</p>
-              <h1 className="text-primary-foreground text-xl font-bold">Find Best Deals</h1>
+            <div className="flex items-center gap-3">
+              <img src={logoCB} alt="Coupon Becho" className="w-10 h-10 rounded-xl" />
+              <div>
+                <p className="text-primary-foreground/70 text-sm">Good morning 👋</p>
+                <h1 className="text-primary-foreground text-xl font-bold">Coupon Becho</h1>
+              </div>
             </div>
             <Link to="/profile" className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
               <span className="text-primary-foreground font-semibold text-sm">JD</span>
