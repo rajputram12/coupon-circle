@@ -4,11 +4,13 @@ import { useParams } from 'next/navigation';
 
 export default function CouponDetailsPage() {
   const params = useParams<{ id: string }>();
+  const couponId = params?.id;
   const [coupon, setCoupon] = useState<any | null>(null);
 
   useEffect(() => {
-    fetch(`/api/coupons/${params.id}`).then((r) => r.json()).then((d) => setCoupon(d.coupon));
-  }, [params.id]);
+    if (!couponId) return;
+    fetch(`/api/coupons/${couponId}`).then((r) => r.json()).then((d) => setCoupon(d.coupon));
+  }, [couponId]);
 
   if (!coupon) return <div className="card p-6">Loading coupon details...</div>;
 
