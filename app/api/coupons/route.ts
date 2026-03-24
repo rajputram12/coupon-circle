@@ -1,4 +1,5 @@
 import { NextRequest } from 'next/server';
+import type { SortOrder } from 'mongoose';
 import { connectDb } from '@/lib/db/connect';
 import { Coupon } from '@/models/Coupon';
 import { couponInputSchema } from '@/lib/validators/coupon';
@@ -20,7 +21,7 @@ export async function GET(req: NextRequest) {
   if (brand) query.brand = brand;
   if (expiringSoon) query.expiryDate = { $lte: new Date(Date.now() + 7 * 86400000), $gte: new Date() };
 
-  const sort = highestDiscount ? { discountValue: -1 } : { createdAt: -1 };
+  const sort: Record<string, SortOrder> = highestDiscount ? { discountValue: -1 } : { createdAt: -1 };
   const coupons = await Coupon.find(query).sort(sort).limit(100);
   return jsonOk({ coupons });
 }
