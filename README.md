@@ -37,6 +37,17 @@ CouponClub is a subscription-based coupon marketplace built with **Next.js + Typ
    ```
 5. Open http://localhost:3000
 
+## Troubleshooting
+- If you see `404 This page could not be found` on `/` after pulling new changes:
+  1. Ensure you are on the latest branch commit.
+  2. Clear stale Next build output and reinstall dependencies:
+     ```bash
+     rm -rf .next node_modules
+     npm install
+     npm run dev
+     ```
+  3. Confirm `app/page.tsx` exists and `next.config.ts` does not override `pageExtensions`.
+
 ## Demo Credentials
 - Admin: `admin@couponclub.app` / `Admin@1234`
 - Subscriber: `user@couponclub.app` / `User@1234`
