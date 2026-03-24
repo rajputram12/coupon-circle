@@ -3,16 +3,16 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import CouponDetailPage from "./pages/CouponDetailPage";
-import SubscriptionPage from "./pages/SubscriptionPage";
-import PostCouponPage from "./pages/PostCouponPage";
-import ProfilePage from "./pages/ProfilePage";
-import AdminPage from "./pages/AdminPage";
-import NotificationsPage from "./pages/NotificationsPage";
-import SearchPage from "./pages/SearchPage";
-import NotFound from "./pages/NotFound";
+import HomePage from "./vite-pages/HomePage";
+import LoginPage from "./vite-pages/LoginPage";
+import CouponDetailPage from "./vite-pages/CouponDetailPage";
+import SubscriptionPage from "./vite-pages/SubscriptionPage";
+import PostCouponPage from "./vite-pages/PostCouponPage";
+import ProfilePage from "./vite-pages/ProfilePage";
+import AdminPage from "./vite-pages/AdminPage";
+import NotificationsPage from "./vite-pages/NotificationsPage";
+import SearchPage from "./vite-pages/SearchPage";
+import NotFound from "./vite-pages/NotFound";
 
 const queryClient = new QueryClient();
 
